@@ -1,0 +1,197 @@
+{
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-type-checked",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "project": "./tsconfig.app.json"
+    },
+    "ignorePatterns": ["vite.config.ts", "env.d.ts"],
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "react-hooks",
+        "import",
+        "jsx-a11y",
+        "perfectionist"
+    ],
+    "settings": {
+        "react": {
+            "version": "19.1.0"
+        },
+        "import": {
+            "resolver": {
+                "typescript": {
+                    "project": "./tsconfig.json"
+                }
+            }
+        }
+    },
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-react": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+        "react/jsx-props-no-spreading": "warn",
+        "react/jsx-boolean-value": ["warn", "never"],
+        "react/no-array-index-key": "warn",
+
+        "@typescript-eslint/no-empty-object-type": "error",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+        "@typescript-eslint/naming-convention": [
+            "warn",
+            {
+                "selector": "typeLike",
+                "format": ["PascalCase"]
+            }
+        ],
+        "@typescript-eslint/ban-ts-comment": "warn",
+        "@typescript-eslint/no-non-null-assertion": "warn",
+        "@typescript-eslint/no-var-requires": "error",
+        "@typescript-eslint/no-inferrable-types": "warn",
+        "@typescript-eslint/no-unused-expressions": "error",
+        "@typescript-eslint/prefer-as-const": "warn",
+        "@typescript-eslint/no-unsafe-function-type": "error",
+        "@typescript-eslint/no-unsafe-argument": "warn",
+        "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/no-unsafe-call": "warn",
+        "@typescript-eslint/no-unsafe-member-access": "warn",
+        "@typescript-eslint/no-unsafe-return": "warn",
+        "@typescript-eslint/consistent-type-exports": "warn",
+        "@typescript-eslint/consistent-type-imports": [
+            "warn",
+            {
+                "prefer": "type-imports",
+                "fixStyle": "separate-type-imports"
+            }
+        ],
+
+        "import/prefer-default-export": "off",
+        "import/newline-after-import": ["error", { "count": 1, "considerComments": true }],
+        "import/named": "error",
+        "import/default": "error",
+        "import/namespace": "error",
+        "import/export": "error",
+        "import/no-named-as-default": "warn",
+        "import/no-named-as-default-member": "warn",
+        "import/no-duplicates": "warn",
+        "import/no-cycle": "warn",
+        "import/no-unused-modules": "warn",
+        "import/no-absolute-path": "error",
+        "import/no-dynamic-require": "warn",
+        "import/no-webpack-loader-syntax": "warn",
+        "import/no-self-import": "error",
+        "import/no-useless-path-segments": "warn",
+        "import/no-deprecated": "warn",
+        "import/order": [
+            "warn",
+            {
+                "groups": ["external", "internal", ["parent", "sibling"]],
+                "newlines-between": "always"
+            }
+        ],
+
+        "no-multiple-empty-lines": ["error", { "max": 99, "maxBOF": 0, "maxEOF": 0 }],
+        "lines-around-directive": ["error", "always"],
+        "object-shorthand": [
+            "warn",
+            "always",
+            { "avoidQuotes": true, "ignoreConstructors": false }
+        ],
+
+        "perfectionist/sort-object-types": [
+            "warn",
+            {
+                "type": "natural",
+                "order": "asc",
+                "ignoreCase": false,
+                "partitionByComment": false,
+                "partitionByNewLine": false,
+                "customGroups": [
+                    {
+                        "groupName": "id",
+                        "elementNamePattern": "^_?id$"
+                    }
+                ],
+                "groups": [
+                    "id",
+                    "index-signature",
+                    "required-property",
+                    "required-method",
+                    "optional-property",
+                    "optional-method",
+                    "unknown"
+                ]
+            }
+        ],
+        "perfectionist/sort-interfaces": [
+            "warn",
+            {
+                "type": "natural",
+                "order": "asc",
+                "ignoreCase": false,
+                "partitionByComment": false,
+                "partitionByNewLine": false,
+                "customGroups": [
+                    {
+                        "groupName": "id",
+                        "elementNamePattern": "^_?id$"
+                    }
+                ],
+                "groups": [
+                    "id",
+                    "index-signature",
+                    "required-property",
+                    "required-method",
+                    "optional-property",
+                    "optional-method",
+                    "unknown"
+                ]
+            }
+        ],
+
+        "jsx-a11y/alt-text": "warn",
+        "jsx-a11y/anchor-has-content": "warn",
+        "jsx-a11y/anchor-is-valid": "warn",
+        "jsx-a11y/aria-activedescendant-has-tabindex": "warn",
+        "jsx-a11y/aria-props": "warn",
+        "jsx-a11y/aria-proptypes": "warn",
+        "jsx-a11y/aria-role": "warn",
+        "jsx-a11y/aria-unsupported-elements": "warn",
+        "jsx-a11y/autocomplete-valid": "warn",
+        "jsx-a11y/click-events-have-key-events": "warn",
+        "jsx-a11y/control-has-associated-label": "warn",
+        "jsx-a11y/heading-has-content": "warn",
+        "jsx-a11y/html-has-lang": "warn",
+        "jsx-a11y/iframe-has-title": "warn",
+        "jsx-a11y/img-redundant-alt": "warn",
+        "jsx-a11y/interactive-supports-focus": "warn",
+        "jsx-a11y/label-has-associated-control": "warn",
+        "jsx-a11y/media-has-caption": "warn",
+        "jsx-a11y/mouse-events-have-key-events": "warn",
+        "jsx-a11y/no-access-key": "warn",
+        "jsx-a11y/no-autofocus": "warn",
+        "jsx-a11y/no-distracting-elements": "warn",
+        "jsx-a11y/no-interactive-element-to-noninteractive-role": "warn",
+        "jsx-a11y/no-noninteractive-element-interactions": "warn",
+        "jsx-a11y/no-noninteractive-element-to-interactive-role": "warn",
+        "jsx-a11y/no-noninteractive-tabindex": "warn",
+        "jsx-a11y/no-redundant-roles": "warn",
+        "jsx-a11y/no-static-element-interactions": "warn",
+        "jsx-a11y/role-has-required-aria-props": "warn",
+        "jsx-a11y/role-supports-aria-props": "warn",
+        "jsx-a11y/scope": "warn",
+        "jsx-a11y/tabindex-no-positive": "warn"
+    }
+}

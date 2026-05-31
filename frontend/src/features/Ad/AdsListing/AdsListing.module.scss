@@ -1,0 +1,11 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listing {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}

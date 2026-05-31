@@ -1,0 +1,64 @@
+# Зависимости (обеих частей)
+frontend/node_modules/
+server/node_modules/
+node_modules/
+
+# Сборки и кэш
+frontend/build/
+frontend/dist/
+frontend/.cache/
+frontend/*.log
+server/dist/
+server/build/
+server/.cache/
+
+# Переменные окружения
+.env
+.env.local
+.env.*.local
+*.env
+
+# Логи
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Файлы рантайма (Node.js)
+server/tmp/
+server/.tmp/
+
+# Системные файлы ОС
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# Покрытие тестов (если есть)
+coverage/
+.nyc_output/
+
+# Файлы сборок (например, .zip, .tar)
+*.tar.gz
+*.zip
+*.tgz
+
+# Докер (если временные образы)
+docker-compose.override.yml
+.docker/
+
+# Прочие возможные артефакты
+*.pem
+*.key
+*.cert
+.env.production
+.serverless/

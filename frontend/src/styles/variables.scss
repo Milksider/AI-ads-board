@@ -1,0 +1,51 @@
+:root {
+    --page: #f7f5f8;
+
+    --revision-text: #faad14;
+    --revision-background: #f9f1e6;
+
+    --neutral-1: #ffffff;
+    --neutral-5: #d9d9d9;
+
+    --text-primary: #000000;
+    --text-secondary: rgba(0, 0, 0, 0.5);
+}
+
+// Шрифты
+@mixin roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+@mixin inter {
+    font-family: 'Inter', sans-serif;
+}
+// Типография
+
+@mixin h5 {
+    @include roboto;
+
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@mixin body16 {
+    @include inter;
+
+    font-size: 16px;
+    line-height: 140%;
+}
+
+@mixin body14 {
+    @include inter;
+
+    font-size: 14px;
+    line-height: 22px;
+}
+
+// font-weight
+@mixin regular {
+    font-weight: 400;
+}
+@mixin strong {
+    font-weight: 700;
+}

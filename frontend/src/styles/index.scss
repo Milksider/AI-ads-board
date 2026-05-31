@@ -1,0 +1,6 @@
+@use './variables.scss';
+
+#root {
+    background-color: var(--page);
+    height: 100vh;
+}
