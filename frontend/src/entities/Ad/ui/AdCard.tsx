@@ -5,6 +5,7 @@ import styles from './AdCard.module.scss';
 
 import type { AdType } from '@/entities/Ad';
 import { formatMoney } from '@/shared/lib';
+import { getCategoryName } from '@/entities/Ad';
 
 type AdCardProps = AdType;
 
@@ -20,7 +21,7 @@ export const AdCard = ({ title, price, needsRevision, category }: AdCardProps) =
                 className={styles.image}
             />
             <Box className={styles.body}>
-                <Box className={styles.category}>{category}</Box>
+                <Box className={styles.category}>{getCategoryName(category)}</Box>
                 <Box className={styles.title} title={title}>
                     {title}
                 </Box>

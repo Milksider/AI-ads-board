@@ -19,5 +19,24 @@ export const theme = createTheme({
                 },
             },
         },
+        MuiInput: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#F6F6F8',
+                    width: '100%',
+                    height: '32px',
+                    borderRadius: '8px',
+                    border: 'none',
+                    padding: '5px 12px',
+                    color: '#707176',
+                    '&:before': {
+                        border: 'none !important',
+                    },
+                    '&:after': {
+                        border: 'none !important',
+                    },
+                },
+            },
+        },
     },
 });

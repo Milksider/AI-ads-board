@@ -1,0 +1,1 @@
+export { AdsSearch } from './AdsSearch';

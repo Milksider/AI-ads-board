@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { getAds } from '@/features/Ad/api';
 import type { Nullable } from '@/shared/types';
@@ -10,27 +11,78 @@ type UseAdsReturn = {
     isFetching: boolean;
     isLoading: boolean;
     page: number;
-    fetchNextPage: () => void;
     fetchPage: (page: number) => void;
-    fetchPrevPage: () => void;
+    updateSearchParam: (key: string, value: string) => void;
 };
 
-export const useAds = (): UseAdsReturn => {
-    const [page, setPage] = useState(0);
+const searchParamsKeys = [
+    'q',
+    'limit',
+    'skip',
+    'needsRevision',
+    'categories',
+    'sortColumn',
+    'sortDirection',
+];
 
-    const fetchNextPage = () => {
-        setPage((prev) => prev + 1);
+export const useAds = (): UseAdsReturn => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const setPage = (page: number) => {
+        setSearchParams({
+            ...searchParams,
+            skip: String(page * 10),
+        });
     };
 
-    const fetchPrevPage = () => {
-        if (page === 0) {
-            return;
+    const getPage = () => {
+        if (!searchParams.has('skip')) {
+            return 0;
         }
-        setPage((prev) => prev - 1);
+
+        return Number(searchParams.get('skip')) / 10;
+    };
+
+    const updateSearchParam = (key: string, value: string) => {
+        const isNewParam = !searchParams.has(key);
+
+        const newParams = {
+            ...searchParams,
+            [key]: value,
+            skip: isNewParam ? '0' : String(getPage()),
+        };
+
+        setSearchParams(newParams);
+    };
+
+    const getQueryKeys = useMemo(() => {
+        const queryKeys = {
+            q: '',
+            skip: '0',
+            limit: '',
+            needsRevision: '',
+            category: '',
+            sortColumn: '',
+            sortDirection: '',
+        };
+
+        searchParamsKeys.forEach((filter) => {
+            const filterValue = searchParams.get(filter);
+
+            if (filterValue) {
+                queryKeys[filter] = filterValue;
+            }
+        });
+
+        return Object.values(queryKeys);
+    }, [searchParams]);
+
+    const getQueryFromSearchParams = () => {
+        return '?' + searchParams.toString();
     };
 
     const fetchPage = (newPage: number) => {
-        if (newPage === page) {
+        if (newPage === Number(getPage())) {
             return;
         }
 
@@ -38,18 +90,17 @@ export const useAds = (): UseAdsReturn => {
     };
 
     const { data, isLoading, isFetching } = useQuery<Nullable<AdPaginated>>({
-        queryKey: ['ads-paginated', page],
-        queryFn: () => getAds({ skip: page * 10 }),
+        queryKey: ['ads-paginated', ...getQueryKeys],
+        queryFn: () => getAds(getQueryFromSearchParams()),
         placeholderData: keepPreviousData,
     });
 
     return {
         data: data as Nullable<AdPaginated>,
         isLoading,
-        page: page + 1,
-        fetchNextPage,
+        page: getPage() + 1,
         isFetching,
-        fetchPrevPage,
         fetchPage,
+        updateSearchParam,
     };
 };
