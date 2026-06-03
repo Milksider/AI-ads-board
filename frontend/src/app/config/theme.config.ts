@@ -38,5 +38,16 @@ export const theme = createTheme({
                 },
             },
         },
+        MuiSelect: {
+            styleOverrides: {
+                root: {
+                    border: '4px solid #F4F4F6',
+                    height: '32px',
+                    '&.MuiOutlinedInput-notchedOutline': {
+                        display: 'none',
+                    },
+                },
+            },
+        },
     },
 });

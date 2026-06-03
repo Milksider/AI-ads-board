@@ -29,10 +29,9 @@ export const useAds = (): UseAdsReturn => {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const setPage = (page: number) => {
-        setSearchParams({
-            ...searchParams,
-            skip: String(page * 10),
-        });
+        const currentSearchParams = new URLSearchParams(searchParams);
+        currentSearchParams.set('skip', String(page * 10));
+        setSearchParams(currentSearchParams);
     };
 
     const getPage = () => {
@@ -45,14 +44,11 @@ export const useAds = (): UseAdsReturn => {
 
     const updateSearchParam = (key: string, value: string) => {
         const isNewParam = !searchParams.has(key);
+        const currentSearchParams = new URLSearchParams(searchParams);
+        currentSearchParams.set(key, value);
+        currentSearchParams.set('skip', isNewParam ? '0' : String(getPage()));
 
-        const newParams = {
-            ...searchParams,
-            [key]: value,
-            skip: isNewParam ? '0' : String(getPage()),
-        };
-
-        setSearchParams(newParams);
+        setSearchParams(currentSearchParams);
     };
 
     const getQueryKeys = useMemo(() => {

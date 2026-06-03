@@ -1,6 +1,6 @@
 import { Input, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import type { ChangeEvent} from 'react';
+import type { ChangeEvent } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -20,14 +20,16 @@ export const SearchBar = () => {
     };
 
     useEffect(() => {
+        const currentSearch = searchParams.get(searchKey);
         const searchValue = debouncedSearch.trim();
-        const shouldSearch = searchValue.length > 3 || searchValue.length === 0;
+        const shouldSearch =
+            (searchValue.length > 3 || searchValue.length === 0) && currentSearch !== searchValue;
+
         if (shouldSearch) {
-            const newSearchParams = {
-                ...searchParams,
-                [searchKey]: searchValue,
-            };
-            setSearchParams(newSearchParams);
+            const currentSearchParams = new URLSearchParams(searchParams);
+            currentSearchParams.set(searchKey, searchValue);
+
+            setSearchParams(currentSearchParams);
         }
     }, [debouncedSearch, setSearchParams, searchParams]);
 
