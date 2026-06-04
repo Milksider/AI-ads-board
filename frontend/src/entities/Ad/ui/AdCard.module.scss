@@ -8,6 +8,19 @@
     border: 1px solid var(--neutral-5);
 }
 
+.list {
+    flex-direction: row;
+    width: 100%;
+    height: 132px;
+
+    .category {
+        position: static;
+        border: none;
+        padding: 0;
+        color: var(--text-secondary);
+    }
+}
+
 .image {
     border-radius: 16px 16px 0 0;
 }
@@ -62,6 +75,7 @@
     display: flex;
     gap: 8px;
     align-items: center;
+    width: fit-content;
 
     &:before {
         content: '';

@@ -2,4 +2,10 @@
     background-color: var(--neutral-1);
     padding: 12px;
     border-radius: 8px;
+    gap: 16px;
+    display: flex;
+}
+
+.search {
+    width: 100%;
 }

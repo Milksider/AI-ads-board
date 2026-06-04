@@ -1,5 +1,5 @@
-import { FormControl, MenuItem, Select } from '@mui/material';
-import type { ChangeEvent} from 'react';
+import { MenuItem, Select } from '@mui/material';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -40,20 +40,18 @@ export const AdsSort = () => {
     };
 
     return (
-        <FormControl fullWidth>
-            <Select
-                id="ads-sort"
-                name="ads-sort"
-                value={sort}
-                title="Сортировка"
-                onChange={handleChange}
-            >
-                {sortOptions.map(({ title, value }) => (
-                    <MenuItem key={title} value={value}>
-                        {title}
-                    </MenuItem>
-                ))}
-            </Select>
-        </FormControl>
+        <Select
+            id="ads-sort"
+            name="ads-sort"
+            value={sort}
+            title="Сортировка"
+            onChange={handleChange}
+        >
+            {sortOptions.map(({ title, value }) => (
+                <MenuItem key={title} value={value}>
+                    {title}
+                </MenuItem>
+            ))}
+        </Select>
     );
 };

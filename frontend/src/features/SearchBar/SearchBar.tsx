@@ -1,14 +1,16 @@
-import { Input, InputAdornment } from '@mui/material';
+import { Box, Input, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import type { ChangeEvent } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+import type { SearchBarProps } from './types';
+
 import { useDebounce } from '@/shared/lib';
 
 const searchKey = 'q';
 
-export const SearchBar = () => {
+export const SearchBar = ({ className }: SearchBarProps) => {
     const [search, setSearch] = useState('');
     const debouncedSearch = useDebounce(search, 300);
 
@@ -28,13 +30,14 @@ export const SearchBar = () => {
         if (shouldSearch) {
             const currentSearchParams = new URLSearchParams(searchParams);
             currentSearchParams.set(searchKey, searchValue);
+            currentSearchParams.set('skip', '0');
 
             setSearchParams(currentSearchParams);
         }
     }, [debouncedSearch, setSearchParams, searchParams]);
 
     return (
-        <div>
+        <Box className={className}>
             <Input
                 value={search}
                 onChange={onChange}
@@ -47,6 +50,6 @@ export const SearchBar = () => {
                     </InputAdornment>
                 }
             />
-        </div>
+        </Box>
     );
 };

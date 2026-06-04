@@ -4,20 +4,25 @@ import DefaultImage from 'public/images/default-image.png';
 import styles from './AdCard.module.scss';
 
 import type { AdType } from '@/entities/Ad';
-import { formatMoney } from '@/shared/lib';
+import { classNames, formatMoney } from '@/shared/lib';
 import { getCategoryName } from '@/entities/Ad';
+import type { View } from '@/features/Ad/AdsView/types';
 
-type AdCardProps = AdType;
+interface AdCardProps extends AdType {
+    view: View;
+}
 
-export const AdCard = ({ title, price, needsRevision, category }: AdCardProps) => {
+export const AdCard = ({ title, price, needsRevision, category, view }: AdCardProps) => {
+    const isListView = view === 'list';
+
     return (
-        <Box className={styles.wrapper}>
+        <Box className={classNames(styles.wrapper, { [styles.list]: isListView })}>
             <img
                 src={DefaultImage}
                 title="Изображение объявления"
                 alt="Изображение объявления"
-                width={200}
-                height={150}
+                width={isListView ? 180 : 200}
+                height={isListView ? 132 : 150}
                 className={styles.image}
             />
             <Box className={styles.body}>

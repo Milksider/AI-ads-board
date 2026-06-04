@@ -5,9 +5,11 @@ import styles from './AdsListing.module.scss';
 import { useAds } from '@/features/Ad/api';
 import { AdCard } from '@/entities/Ad';
 import { Pagination } from '@/shared/ui';
+import { useAdsViewContext } from '@/features/Ad/AdsView';
 
 export const AdsListing = () => {
     const { data, page, fetchPage } = useAds();
+    const { view } = useAdsViewContext();
 
     if (!data) {
         return <div>Ошибка загрузки объявлений</div>;
@@ -27,6 +29,7 @@ export const AdsListing = () => {
                         price={price}
                         category={category}
                         needsRevision={needsRevision}
+                        view={view}
                     />
                 ))}
             </Box>
