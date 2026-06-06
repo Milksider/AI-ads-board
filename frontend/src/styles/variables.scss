@@ -46,6 +46,9 @@
 @mixin regular {
     font-weight: 400;
 }
+@mixin medium {
+    font-weight: 600;
+}
 @mixin strong {
     font-weight: 700;
 }

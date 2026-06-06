@@ -1,0 +1,42 @@
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wrapper {
+    min-width: 256px;
+    width: auto;
+    background-color: var(--neutral-1);
+    border-radius: 8px;
+    padding: 16px;
+    height: fit-content;
+}
+
+.title {
+    @include h5;
+    @include medium;
+}
+
+.category {
+    @include body14;
+    @include regular;
+}
+
+.revision {
+    :global(.MuiFormControlLabel-label) {
+        font-size: 14px !important;
+        line-height: 140% !important;
+        font-weight: 700 !important;
+    }
+}
+
+.reset {
+    border-radius: 8px;
+    background-color: var(--neutral-1);
+    padding: 12px;
+    color: var(--text-secondary);
+
+    @include body14;
+    @include regular;
+}

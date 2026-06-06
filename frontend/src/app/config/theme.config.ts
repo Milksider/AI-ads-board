@@ -49,5 +49,93 @@ export const theme = createTheme({
                 },
             },
         },
+        MuiAccordion: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'transparent',
+                    boxShadow: 'none',
+                    '&::before': {
+                        display: 'none',
+                    },
+                    '&.Mui-expanded': {
+                        margin: 0,
+                    },
+                },
+            },
+        },
+        MuiAccordionSummary: {
+            styleOverrides: {
+                root: {
+                    padding: 0,
+                    margin: 0,
+                    minHeight: 'fit-content',
+                    '&.Mui-expanded': {
+                        minHeight: 'fit-content',
+                    },
+                },
+                content: {
+                    margin: 0,
+                    '&.Mui-expanded': {
+                        margin: 0,
+                    },
+                },
+            },
+        },
+        MuiAccordionDetails: {
+            styleOverrides: {
+                root: {
+                    padding: '8px 0',
+                },
+            },
+        },
+        MuiCheckbox: {
+            styleOverrides: {
+                root: {
+                    padding: '0 9px 0 0',
+                },
+            },
+        },
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    borderColor: '#F0F0F0',
+                    margin: '10px 0',
+                },
+            },
+        },
+        MuiFormControlLabel: {
+            styleOverrides: {
+                root: {
+                    margin: '0',
+                },
+                label: {
+                    fontSize: '14px',
+                    lineHeight: '24px',
+                    fontWeight: '400',
+                },
+            },
+        },
+        MuiSwitch: {
+            styleOverrides: {
+                root: {
+                    width: '44px',
+                    height: '22px',
+                    padding: 0,
+                    borderRadius: '16px',
+                },
+                thumb: {
+                    width: '18px',
+                    height: '18px',
+                },
+                switchBase: {
+                    top: '2px',
+                    left: '2px',
+                    padding: 0,
+                    '&.Mui-checked': {
+                        transform: 'translateX(22px)',
+                    },
+                },
+            },
+        },
     },
 });

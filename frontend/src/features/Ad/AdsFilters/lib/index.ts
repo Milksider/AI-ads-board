@@ -1,0 +1,1 @@
+export { useAdsFilters } from './useAdsFilters';
