@@ -7,10 +7,9 @@ import { AdsSearch } from '@/features/Ad/AdsSearch';
 import { AdsViewProvider } from '@/features/Ad/AdsView';
 import { AdsFilters } from '@/features/Ad/AdsFilters';
 
-
 export const AdsPage = () => {
     return (
-        <Box>
+        <Box className={styles.page}>
             <AdsViewProvider>
                 <AdsSearch />
                 <Box className={styles.content}>

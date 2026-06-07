@@ -4,6 +4,22 @@
     border-radius: 8px;
     gap: 16px;
     display: flex;
+
+    @include mobile {
+        flex-direction: column;
+    }
+}
+
+.additional {
+    display: grid;
+    grid-template-columns: 74px auto;
+    gap: 16px;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
 
 .search {

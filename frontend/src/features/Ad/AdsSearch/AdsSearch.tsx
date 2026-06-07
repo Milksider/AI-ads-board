@@ -10,8 +10,10 @@ export const AdsSearch = () => {
     return (
         <Box className={styles.wrapper}>
             <SearchBar className={styles.search} />
-            <AdsView />
-            <AdsSort />
+            <Box className={styles.additional}>
+                <AdsView />
+                <AdsSort />
+            </Box>
         </Box>
     );
 };

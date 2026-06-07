@@ -29,6 +29,11 @@
         line-height: 140% !important;
         font-weight: 700 !important;
     }
+
+    @include mobile {
+        display: flex !important;
+        justify-content: space-between;
+    }
 }
 
 .reset {

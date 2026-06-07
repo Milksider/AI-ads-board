@@ -52,3 +52,11 @@
 @mixin strong {
     font-weight: 700;
 }
+
+// адаптив
+
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}

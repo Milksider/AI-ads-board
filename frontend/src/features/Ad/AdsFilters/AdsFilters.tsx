@@ -11,7 +11,6 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import styles from './AdsFilters.module.scss';
-
 import { useAdsFilters } from './lib';
 
 export const AdsFilters = () => {

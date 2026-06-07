@@ -1,4 +1,16 @@
+.page {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .content {
     display: flex;
     gap: 24px;
+    padding-bottom: 24px;
+
+    @include mobile {
+        flex-direction: column;
+    }
 }
