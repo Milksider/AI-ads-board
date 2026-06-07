@@ -22,9 +22,10 @@ export const AdsListing = () => {
     return (
         <Box className={styles.wrapper}>
             <Box className={styles.listing}>
-                {items?.map(({ title, price, category, needsRevision }) => (
+                {items?.map(({ title, price, category, needsRevision, id }) => (
                     <AdCard
-                        key={crypto.randomUUID()}
+                        key={id}
+                        id={id}
                         title={title}
                         price={price}
                         category={category}

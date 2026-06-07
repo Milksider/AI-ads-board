@@ -1,0 +1,1 @@
+export { useAd } from './useAd';

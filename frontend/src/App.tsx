@@ -9,7 +9,9 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <ThemeProvider theme={theme}>
-                <AppRoutes />
+                <div className="page">
+                    <AppRoutes />
+                </div>
             </ThemeProvider>
         </QueryClientProvider>
     );

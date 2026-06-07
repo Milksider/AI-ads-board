@@ -11,4 +11,5 @@ export const apiRequestPath = {
 
         return '/api/items' + query;
     },
+    GET_AD: (id: string) => `/api/items/${id}`,
 };

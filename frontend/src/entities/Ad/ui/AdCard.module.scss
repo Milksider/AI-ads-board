@@ -6,6 +6,13 @@
     background-color: var(--neutral-1);
     border-radius: 16px;
     border: 1px solid var(--neutral-5);
+
+    @include mobile {
+        img {
+            width: 200px;
+            height: 150px;
+        }
+    }
 }
 
 .list {
@@ -27,6 +34,28 @@
     .body {
         width: 100%;
         overflow: hidden;
+    }
+
+    @include mobile {
+        flex-direction: column;
+        width: 200px;
+        height: 268px;
+
+        .category {
+            position: absolute;
+            border: 1px solid var(--neutral-5);
+            padding: 0 12px;
+            color: var(--text-primary);
+        }
+
+        .image {
+            border-radius: 16px 16px 0 0;
+        }
+
+        .body {
+            width: 100%;
+            overflow: visible;
+        }
     }
 }
 

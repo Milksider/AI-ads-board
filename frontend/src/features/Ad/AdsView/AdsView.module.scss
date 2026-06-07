@@ -5,6 +5,10 @@
     min-width: fit-content;
     display: flex;
     height: 32px;
+
+    @include mobile {
+        display: none;
+    }
 }
 
 .separator {

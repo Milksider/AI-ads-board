@@ -1,0 +1,29 @@
+.wrapper {
+    background-color: var(--revision-background);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow:
+        0px 9px 28px 8px #0000000d,
+        0px 6px 16px 0px #00000014,
+        0px 3px 6px -4px #0000001f;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 36px;
+}
+
+.title {
+    @include body16;
+    @include medium;
+}
+
+.description {
+    @include body14;
+}
+
+.list {
+    @include body14;
+
+    & li {
+        margin-left: 16px;
+    }
+}

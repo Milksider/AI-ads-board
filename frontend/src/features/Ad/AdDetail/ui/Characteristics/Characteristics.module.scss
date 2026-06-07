@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.title {
+    @include m3;
+    @include medium;
+
+    margin-bottom: 16px;
+}
+
+.name,
+.value {
+    @include body16;
+}
+
+.name {
+    @include strong;
+    color: var(--text-secondary);
+}
+
+.value {
+    @include regular;
+    color: var(--text-primary);
+}
